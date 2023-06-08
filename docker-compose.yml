@@ -4,7 +4,7 @@ services:
   db:
     image: mysql:latest
     restart: always
-    command: --default-time-zone=+08:00
+    # command: --default-time-zone=+08:00
     environment:
       MYSQL_DATABASE: $DATABASE
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
@@ -14,7 +14,7 @@ services:
       - 3306:3306
 
   api:
-    build: ./Flask-API
+    build: ./rrs-api
     restart: always
     environment:
       DATABASE: $DATABASE
