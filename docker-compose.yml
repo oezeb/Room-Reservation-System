@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    command: --default-time-zone=+08:00
+    environment:
+      MYSQL_DATABASE: $DATABASE
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+    ports:
+      - 3306:3306
+
+  api:
+    build: ./Flask-API
+    restart: always
+    environment:
+      DATABASE: $DATABASE
+      DB_HOST: $DB_HOST
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
