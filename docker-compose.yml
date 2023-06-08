@@ -17,8 +17,8 @@ services:
     build: ./rrs-api
     restart: always
     environment:
+      DB_HOST: db
       DATABASE: $DATABASE
-      DB_HOST: $DB_HOST
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASSWORD
     ports:
