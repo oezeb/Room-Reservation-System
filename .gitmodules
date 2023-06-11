@@ -1,3 +1,6 @@
 [submodule "rrs-api"]
 	path = rrs-api
 	url = https://github.com/oezeb/rrs-api.git
+[submodule "rrs-ui"]
+	path = rrs-ui
+	url = https://github.com/oezeb/rrs-ui.git
