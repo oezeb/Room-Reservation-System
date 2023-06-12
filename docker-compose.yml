@@ -25,3 +25,13 @@ services:
       - 5000:5000
     depends_on:
       - db
+  ui:
+    image: nginx:stable-alpine
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf # use `http://api:5000` in nginx.conf as `proxy_pass`
+      - ./rrs-ui/build:/usr/share/nginx/html
+    ports:
+      - 80:80
+    depends_on:
+      - api
